@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kulturna antropologija Srba</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-light: #f3f4f6;
+      --bg-white: #ffffff;
+      --accent: #b91c1c;
+      --accent-soft: #fee2e2;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-soft: #e5e7eb;
+      --radius-lg: 1.25rem;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.15);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #020617, #111827);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER / NAV */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo img {
+  width: 90px;     /* veličina loga na desktopu */
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .logo img {
+    width: 100px;   /* veličina loga na telefonu */
+  }
+}
+
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .site-nav a {
+      color: #cbd5f5;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 0.1rem;
+      opacity: 0.9;
+    }
+
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #f97316, #ef4444);
+      transition: width 0.2s ease;
+    }
+
+    .site-nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-pill span {
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 1.5rem auto 1.75rem;
+      padding: 1.75rem 1.25rem 0;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 1), #e5e7eb);
+      border-radius: 1.75rem;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 0;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.03);
+    }
+
+    .hero-media-badge {
+      position: absolute;
+      left: 1.25rem;
+      bottom: 1.25rem;
+      background: rgba(15, 23, 42, 0.88);
+      color: #e5e7eb;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .hero-media-badge span.emblem {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #b91c1c);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #f9fafb;
+    }
+
+    .hero-content {
+      padding: 1.6rem 1.9rem 1.6rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fee2e2;
+      color: #7f1d1d;
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+
+    .hero-title {
+      font-size: clamp(1.75rem, 2.1vw + 1.5rem, 2.3rem);
+      line-height: 1.15;
+      color: #0f172a;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: #4b5563;
+      max-width: 32rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.13s ease, box-shadow 0.13s ease, background 0.13s ease, color 0.13s ease, border-color 0.13s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #f97316, #b91c1c);
+      color: #f9fafb;
+      box-shadow: 0 12px 30px rgba(185, 28, 28, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(185, 28, 28, 0.45);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #374151;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.04);
+      transform: translateY(-1px);
+    }
+
+    /* LAYOUT & SECTIONS */
+
+    main {
+      flex: 1;
+      background: radial-gradient(circle at top, rgba(248, 250, 252, 1), #e5e7eb);
+      border-radius: 1.75rem 1.75rem 0 0;
+      margin-top: -0.25rem;
+      padding-bottom: 3rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .content-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 3rem;
+    }
+
+    .sections-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.7fr) minmax(0, 1.4fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .sections-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .section-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.3rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    .section-card + .section-card {
+      scroll-margin-top: 90px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-body p {
+      margin-bottom: 0.65rem;
+      font-size: 0.93rem;
+      color: var(--text-main);
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-body strong {
+      font-weight: 600;
+    }
+
+    .section-body em {
+      font-style: italic;
+    }
+
+    .meta-note {
+      font-size: 0.82rem;
+      color: #6b7280;
+      background: #f9fafb;
+      border-radius: 0.75rem;
+      padding: 0.6rem 0.7rem;
+      border: 1px dashed #e5e7eb;
+      margin-top: 0.65rem;
+    }
+
+    /* SIDE PANEL */
+
+    .sections-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: sticky;
+      top: 84px;
+    }
+
+    .side-card {
+      background: #0b1120;
+      color: #e5e7eb;
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.6);
+    }
+
+    .side-card h3 {
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .side-card p {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .side-nav-list {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.15rem;
+      font-size: 0.8rem;
+    }
+
+    .side-nav-list a {
+      color: #e5e7eb;
+      text-decoration: none;
+      padding: 0.25rem 0.4rem;
+      border-radius: 0.5rem;
+      display: block;
+      opacity: 0.85;
+    }
+
+    .side-nav-list a:hover {
+      background: rgba(15, 23, 42, 0.7);
+      opacity: 1;
+    }
+
+    .side-pill {
+      margin-top: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 0.75rem;
+      color: #cbd5f5;
+    }
+
+    .side-pill span.icon {
+      font-size: 0.85rem;
+    }
+
+    .stats-card {
+      background: #f9fafb;
+      border-radius: var(--radius-lg);
+      padding: 0.85rem 0.9rem;
+      border: 1px solid var(--border-soft);
+      font-size: 0.8rem;
+    }
+
+    .stats-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.35rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.35rem 0.8rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: #6b7280;
+    }
+
+    .stat-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .stat-chip {
+      margin-top: 0.35rem;
+      font-size: 0.72rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* IMAGES & GALLERY */
+
+    .image-block {
+      margin: 0.75rem 0 0.4rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      cursor: zoom-in;
+    }
+
+    .image-block img {
+      width: 100%;
+      display: block;
+      max-height: 280px;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+
+    .image-block:hover img {
+      transform: scale(1.01);
+    }
+
+    .image-caption {
+      font-size: 0.78rem;
+      color: #6b7280;
+      padding: 0.4rem 0.7rem 0.6rem;
+      background: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.6rem;
+    }
+
+    .gallery-item {
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      cursor: zoom-in;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      height: 160px;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-caption {
+      font-size: 0.78rem;
+      padding: 0.4rem 0.55rem 0.55rem;
+      color: #4b5563;
+      background: #f9fafb;
+    }
+
+    /* MODAL / LIGHTBOX */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+      z-index: 80;
+    }
+
+    .modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-inner {
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      background: #020617;
+      border-radius: 1rem;
+      padding: 0.75rem 0.75rem 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 0.35rem;
+    }
+
+    .modal-header span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+    }
+
+    .modal-close {
+      background: none;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #e5e7eb;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .modal-image-wrap {
+      border-radius: 0.7rem;
+      overflow: hidden;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .modal-image-wrap img {
+      max-height: 64vh;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    .modal-caption {
+      font-size: 0.8rem;
+      color: #d1d5db;
+      padding-inline: 0.35rem;
+    }
+
+    /* FOOTER */
+
+    .glavni-footer {
+  background: linear-gradient(135deg, #0f172a, #22242a);
+  color: #f8f8f8;
+  text-align: center;
+  padding: 60px 20px 30px;
+  margin-top: 80px;
+  border-top: 5px solid #c0a060;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+}
+
+.glavni-footer h3 {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  color: #f4f1d0;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.footer-info {
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.footer-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #fafafa;
+}
+
+.footer-info strong {
+  color:  #b91c1c;;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.footer-bottom span {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Efekat svjetlucanja na hover */
+.footer-info p:hover strong {
+  color: #fff4b0;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-content {
+        padding: 1.4rem 1.4rem 1.6rem;
+      }
+
+      .sections-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .sections-side {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding-inline: 1rem;
+      }
+
+      .site-nav {
+        position: absolute;
+        inset: 100% 0 auto 0;
+        background: radial-gradient(circle at top, #020617, #020617);
+        padding: 0.6rem 1.1rem 0.9rem;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.45);
+        transform-origin: top;
+        transform: scaleY(0.9);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease, transform 0.15s ease;
+      }
+
+      .site-nav.open {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.8rem;
+      }
+
+      main {
+        border-radius: 1.5rem 1.5rem 0 0;
+      }
+
+      .hero {
+        padding-inline: 1rem;
+      }
+
+      .content-shell {
+        padding-inline: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-card {
+        border-radius: 1.3rem;
+      }
+
+      .section-card {
+        padding: 1.1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <a href="https://fzm.me/v/index.php/naslovnal">
+          <img src="Fond.png.webp" alt="Logo projekta Kulturna antropologija Srba">
+        </a>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-label="Otvori navigaciju">
+        ☰ <span>Meni</span>
+      </button>
+
+      <nav class="site-nav">
+        <a href="#section1">1. Antropologija</a>
+        <a href="#section2">2. Struktura stanovništva</a>
+        <a href="#section4">4. Migracije</a>
+        <a href="#section5">5. Umjetnici</a>
+        <a href="#section6">6–10. Digitalni mediji</a>
+        <a href="#section11" class="nav-pill">
+          <span>Crkva Sv. Đorđa</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <article class="hero-card">
+        <div class="hero-media">
+          <!-- OVDJE UBACI SVOJU HERO SLIKU -->
+          <img src="heroSlika.png" alt="Kulturna antropologija Srba – ilustrativna hero fotografija" class="js-lightbox"
+               data-full="images/hero.jpg"
+               data-caption="Hero fotografija projekta „Kulturna antropologija Srba“" />
+          <div class="hero-media-badge">
+            <span class="emblem">С</span>
+            <span>Identitet • Nasljeđe • Zajednica</span>
+          </div>
+        </div>
+        <div class="hero-content">
+          <div>
+            <div class="hero-tag">
+              <span>edukativni projekat</span>
+            </div>
+            <h1 class="hero-title">„Kulturna antropologija Srba“</h1>
+            <p class="hero-sub">
+              Proučavanje običaja, vjerovanja, tradicije, jezika, umjetnosti i društvenih struktura srpskog naroda u Crnoj Gori – od srednjeg vijeka do savremenog doba.
+            </p>
+          </div>
+
+          <div>
+            <div class="hero-meta">
+              <div class="hero-meta-item">📍 Crna Gora</div>
+              <div class="hero-meta-item">🕯 Pravoslavna tradicija</div>
+              <div class="hero-meta-item">🎨 Srpska umjetnost i stvaralaštvo</div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#section1" class="btn-primary">Kreni od antropologije →</a>
+              <a href="#section14" class="btn-ghost">Pogledaj galeriju</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- GLAVNI SADRŽAJ -->
+    <div class="content-shell">
+      <div class="sections-grid">
+        <!-- MAIN SECTIONS -->
+        <div class="sections-main">
+
+          <!-- 1. Kulturna antropologija Srba -->
+          <section id="section1" class="section-card">
+            <div class="section-label">1. Poglavlje</div>
+            <h2 class="section-title">Kulturna antropologija Srba</h2>
+            <p class="section-subtitle">
+              Običaji, tradicija, jezik, pravoslavlje i svakodnevni život Srba u Crnoj Gori.
+            </p>
+            <div class="section-body">
+              <p>
+                Kulturna antropologija Srba bavi se proučavanjem običaja, vjerovanja, tradicija,
+                jezika, umjetnosti i društvenih struktura srpskog naroda kroz istoriju i u savremenom
+                društvu. Ova disciplina istražuje kako Srbi izražavaju svoju kulturnu i nacionalnu
+                identitet kroz različite aspekte svakodnevnog života.
+              </p>
+              <p>
+                Opšte je poznato da život, kultura i tradicija Srba u Crnoj Gori imaju utemeljene
+                vrijednosti koji sežu kroz vjekove, a njihove karakteristike definisane su istorijskim
+                događajima, vjerskim praksama, običajima i specifičnim društvenim okolnostima.
+                Srbi u Crnoj Gori čine značajnu manjinu, a njihove tradicije i kulturni identitet su
+                snažno povezani sa regionom, naročito kroz zajedničku istoriju sa srpskom narodnom
+                kulturom i pravoslavljem.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/stare-kuce-stesevic.jpg"
+                   data-caption="Stare kuće porodice Stešević iz Rožaja – duh jednog vremena i tadašnje arhitekture">
+                <img src="staraKuca.jpg" alt="Stare kuće porodice Stešević u Rožajama" />
+                <div class="image-caption">
+                  Stare kuće porodice Stešević iz Rožaja koje simbolizuju duh jednog vremena i njegovu
+                  kulturološku dimenziju, uz jasan prikaz tadašnje arhitekture stanovanja. Izvor: Facebook
+                </div>
+              </div>
+
+              <p>
+                Kultura Srba u Crnoj Gori ogleda se u pravoslavnoj religiji, narodnim običajima, pjesmi,
+                igri i jeziku. Značajnu ulogu u očuvanju identiteta Srba u Crnoj Gori imaju manastiri,
+                crkve i vjerske manifestacije. Mnogi manastiri u Crnoj Gori, kao što su manastir Ostrog,
+                manastir Cetinje i manastir Piva, imaju istorijsku vrijednost, a ujedno služe kao
+                kulturni centri.
+              </p>
+              <p>
+                Istorijski gledano, Srbi su prisutni na teritoriji Crne Gore od srednjeg vijeka, a Crna
+                Gora je bila dio velikih srpskih država tokom istorije, poput Raške i Zete. U periodu
+                Osmanskog carstva, Crna Gora je bila poznata po svom otporu prema Osmanlijama, dok su
+                Srbi u Crnoj Gori ostali vjerni pravoslavlju, što je oblikovalo njihov identitet.
+              </p>
+              <p>
+                Tokom 19. i 20. vijeka, Crna Gora je postala dio Kraljevine Jugoslavije, a kasnije i
+                Socijalističke Federativne Jugoslavije, sa Srbima u Crnoj Gori kao važnim nosiocima
+                kulturnih, vjerskih i političkih tradicija.
+              </p>
+              <p>
+                Tradicionalni običaji dodatno afirmišu srpsku kulturu i identitet po kojima su
+                prepoznatljivi: slavlje Božića, Vaskrsa, Vidovdana i drugih crkvenih praznika zauzimaju
+                značajno mjesto u životu Srba u Crnoj Gori. Narodne igre i pjesme, poput kola i
+                četvorke, dio su svakodnevnog života i obilježavaju mnoge lokalne proslave i skupove.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/bozicni-obicaji.jpg"
+                   data-caption="Običaji vezani za Badnji dan i Božić – priprema za najradosniji hrišćanski praznik">
+                <img src="staraKuca1.jpg" alt="Božićni običaji – Badnji dan" />
+                <div class="image-caption">
+                  Izvor: Sarkis Mustajbašić
+                </div>
+              </div>
+              <p>Fotografija prikazuje dio običaja koji predstoje najradosnijem hrišćanskom prazniku – Božiću.
+                Badnji dan se proslavlja 24. decembra, odnosno 6. januara po gregorijanskom kalendaru za crkve i
+                vjernike koji prate julijanski kalendar. Naziv je dobio po badnjaku koji se na taj dan siječe i pali.</p>
+            </div>
+          </section>
+
+          <!-- 2. Prikaz strukture stanovništva -->
+          <section id="section2" class="section-card">
+            <div class="section-label">2. Poglavlje</div>
+            <h2 class="section-title">Prikaz strukture stanovništva Srba u Crnoj Gori kroz istoriju</h2>
+            <p class="section-subtitle">
+              Od većine do borbe za opstanak – demografske promjene, nacionalno izjašnjavanje i jezička orijentacija.
+            </p>
+            <div class="section-body">
+              <p>
+                Za početak obrade ove teme nameće se analiza kretanja i migracija Srba u Crnoj Gori, te
+                kako je broj Srba kroz istoriju – od značajne većine – došao do borbe za opstanak na
+                ovim prostorima.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/monstat-prezentacija-2024.jpg"
+                   data-caption="Prezentacija rezultata popisa stanovništva u Crnoj Gori, 15. oktobar 2024.">
+                <img src="prezentacija1.png" alt="Prezentacija popisa stanovništva u Crnoj Gori" />
+                <div class="image-caption">
+                  Izvor: Prezentacija rezultata popisa stanovništva u Crnoj Gori, 15. oktobar 2024.
+                </div>
+              </div>
+
+              <p>
+                U Crnoj Gori se 41,1% građana izjašnjava kao Crnogorci, a 32,9% kao Srbi (popis 2023).
+                Na prethodnom popisu 2011. godine bilo je 45% Crnogoraca i oko 29% Srba.
+              </p>
+              <p>
+                Osim onih koji se izjašnjavaju kao Crnogorci ili kao Srbi, posljednji popis pokazuje da
+                9,45% stanovništva čine Bošnjaci, 4,97% Albanci, 2% Rusi i 1,6% Muslimani. Na pitanje o
+                nacionalnoj pripadnosti nije željelo da se izjasni oko 2,9% stanovništva, dok u Crnoj
+                Gori živi 623.633 stanovnika – što je za 0,6% više nego 2011. godine.
+              </p>
+
+              <p>
+                Kada je u pitanju jezička orijentacija, primjetan je rast onih koji govore srpskim
+                jezikom. Na pitanje kojim jezikom govore, 36,2% stanovnika je odgovorilo da je to
+                crnogorski, dok je 43,5% odgovorilo da je to srpski.
+              </p>
+              <p>
+                Prema vjeroispovijesti, građani Crne Gore se dijele na: pravoslavce – 71,1%, muslimane –
+                20% i katolike – 3,2% (u odnosu na 2011: pravoslavci 72%, muslimani 19%, katolici 3,4%).
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/monstat-grafikon.jpg"
+                   data-caption="Uporedni prikaz broja Crnogoraca i Srba u Crnoj Gori – popisi 2011. i 2023.">
+                <img src="prezentacija2.png" alt="Monstat grafikon – uporedni prikaz" />
+                <div class="image-caption">
+                  Izvor: Monstat – uporedna analiza nacionalnih grupa (popisi 2011. i 2023).
+                </div>
+              </div>
+
+              <p>
+                Uporedna analiza broja stanovnika dvije najveće nacionalne grupe (2011 → 2023):
+              </p>
+              <ul style="margin-left:1.2rem; font-size:0.9rem; color:#374151;">
+                <li>Crnogorci 2011: 278.865</li>
+                <li>Srbi 2011: 178.110</li>
+                <li>Crnogorci 2023: 256.463</li>
+                <li>Srbi 2023: 205.370</li>
+              </ul>
+
+              <p>
+                Broj nacionalnih Srba je u blagom porastu, što svakako raduje, ali je to i dalje ispod
+                očekivanja i standarda koje Srbi postavljaju u pogledu svog položaja.
+              </p>
+
+              <p>
+                Kada je u pitanju srpski jezik, ističe se kao dominantan u Crnoj Gori:
+              </p>
+              <ul style="margin-left:1.2rem; font-size:0.9rem; color:#374151;">
+                <li>Srpski kao maternji: 43,18% (269.307 stanovnika)</li>
+                <li>Srpski kao svakodnevni jezik: 43,52% (271.422 osobe)</li>
+                <li>Crnogorski kao maternji: 34,52% (215.299 stanovnika)</li>
+                <li>Crnogorski kao svakodnevni jezik: 36,23% (225.956 osoba)</li>
+              </ul>
+
+              <p>
+                U tekstu su zatim hronološki istaknuti rezultati popisa jezičke orijentacije iz 1921. i
+                1931. godine, koji pokazuju izrazitu dominaciju srpskog jezika:
+              </p>
+
+              <p><strong>Popis 1921:</strong></p>
+              <ul style="margin-left:1.2rem; font-size:0.9rem; color:#374151;">
+                <li>Srpski i hrvatski jezik: 92,14%</li>
+                <li>Arnautski jezik: 7,86%</li>
+              </ul>
+
+              <p><strong>Popis 1931:</strong></p>
+              <ul style="margin-left:1.2rem; font-size:0.9rem; color:#374151;">
+                <li>Srpski, hrvatski i slovenački: 94,42%</li>
+                <li>Arnautski: 5,03%</li>
+              </ul>
+
+              <p><strong>Izjašnjavanje o vjeri 1931:</strong></p>
+              <ul style="margin-left:1.2rem; font-size:0.9rem; color:#374151;">
+                <li>Pravoslavci: 75,74%</li>
+                <li>Muslimani: 16,95%</li>
+                <li>Katolici: 7,25%</li>
+              </ul>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/saborni-hram-podgorica.jpg"
+                   data-caption="Saborni hram u Podgorici – centralno mjesto pravoslavnog života">
+                <img src="hram.jpg" alt="Saborni hram u Podgorici" />
+                <div class="image-caption">
+                  Saborni hram u Podgorici. Slikao: Sarkis Mustajbašić.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Političko prije nego statističko pitanje -->
+          <section id="section3" class="section-card">
+            <div class="section-label">3. Poglavlje</div>
+            <h2 class="section-title">Političko prije nego statističko pitanje</h2>
+            <p class="section-subtitle">
+              Popis kao tema političkih prijepora umjesto neutralnog statističkog instrumenta.
+            </p>
+            <div class="section-body">
+              <p>
+                Iako projekat nema za cilj da se bavi političkom analizom, stiče se opšti utisak da je
+                popis stanovništva u Crnoj Gori više bio politički nego statistički parametar. Inače,
+                popis je, po svojoj prirodi, statističko pitanje i putokaz za izvršnu vlast – kako da
+                vodi određene politike, posebno demografsku i ekonomsku.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/crkva-grizica-rozaje.jpg"
+                   data-caption="Crkva u Grižici – Rožaje">
+                <img src="crkvaRozaje.jpg" alt="Crkva u Grižici – Rožaje" />
+                <div class="image-caption">
+                  Crkva u Grižici – Rožaje. Slikao: Marko Ćulafić.
+                </div>
+              </div>
+
+              <p>
+                Umjesto da pitanja nacionalnosti i jezika budu tretirana kao statističke kategorije,
+                ona postaju jedno od gorućih političkih pitanja u Crnoj Gori i, prema ocjeni Digitalnog
+                forenzičkog centra, često se zloupotrebljavaju u političke svrhe.
+              </p>
+              <p>
+                Dok je u Crnoj Gori popisivanje nacije, jezika i vjere dio upitnika koji ima najveću
+                političku važnost, te podatke većina zemalja Evropske unije, kao ni Sjedinjene Američke
+                Države, uopšte ne prikuplja u ovakvom formatu.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/politika-ilustracija.jpg"
+                   data-caption="Ilustracija – politički kontekst popisa u Crnoj Gori">
+                <img src="ilustracija.jpg" alt="Ilustracija – Politika CG" />
+                <div class="image-caption">
+                  Foto: ilustracija – Politika CG.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. Migracija Srba u Crnoj Gori -->
+          <section id="section4" class="section-card">
+            <div class="section-label">4. Poglavlje</div>
+            <h2 class="section-title">Migracija Srba u Crnoj Gori</h2>
+            <p class="section-subtitle">
+              Istorijski procesi kretanja stanovništva, uzroci, posljedice i savremeni trendovi iseljavanja.
+            </p>
+            <div class="section-body">
+              <p>
+                Struktura stanovništva Srba u Crnoj Gori kroz istoriju predstavlja složen i dinamičan
+                proces, oblikovan uticajem različitih političkih, kulturnih, vjerskih i društvenih
+                faktora. Ovaj proces seže od vremena prvih naselja na teritoriji Crne Gore, preko
+                osmanske vladavine, perioda obnovljenih državnih entiteta, sve do savremenih političkih
+                promjena koje su oblikovale demografski sastav.
+              </p>
+              <p>
+                Migracija stanovništva odnosi se na kretanje ljudi sa jednog mjesta na drugo, bilo unutar
+                zemlje ili između zemalja. Migracije mogu biti pokrenute ratovima, političkim promjenama,
+                ekonomskim razlozima, potragom za boljim životnim uslovima, kao i stvaranjem novih
+                državnih entiteta.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/iseljavanje-ilustracija.jpg"
+                   data-caption="Ilustracija putnika i iseljavanja – simbol odlazaka iz Crne Gore">
+                <img src="ilistracija2.jpg" alt="Ilustracija putnika – iseljavanje" />
+                <div class="image-caption">
+                  Foto: ilustracija putnici, iseljavanje. Foto: Boris Pejović.
+                </div>
+              </div>
+
+              <p>
+                U kontekstu migracija srpskog stanovništva u Crnoj Gori i širem regionu Balkana,
+                migracija je bila značajan istorijski fenomen sa brojnim uzrocima i posljedicama.
+                Brojni faktori – migracije, vjerska previranja, političke promjene i nacionalne
+                identifikacije – uticali su na položaj Srba.
+              </p>
+              <p>
+                Srbi su tokom vjekova igrali ključnu ulogu u oblikovanju kulturnog i društvenog života
+                Crne Gore, ali su se kroz različite istorijske faze pojavljivali izazovi u vezi sa
+                nacionalnim identitetom i etničkim odnosima. U savremenom kontekstu, demografski sastav
+                Srba i dalje je složen, a društvene i političke tenzije ostaju važan faktor.
+              </p>
+              <p>
+                Iseljavanje ne pogađa samo Srbe, već i pripadnike drugih naroda iz Crne Gore. Zvanični
+                podaci Monstata pokazuju da je Crna Gora na popisu iz 1991. godine imala 615.035
+                stanovnika, a 25 godina kasnije 622.159 – uz stalne migracije, posebno mlađe populacije.
+              </p>
+              <p>
+                U savremenom periodu, migracije se uglavnom baziraju na ekonomskim razlozima, dok
+                političke migracije postaju sve rjeđe.
+              </p>
+            </div>
+          </section>
+
+          <!-- 5. Afirmacija stvaralaštva srpske umjetnosti -->
+          <section id="section5" class="section-card">
+            <div class="section-label">5. Poglavlje</div>
+            <h2 class="section-title">Afirmacija stvaralaštva srpske umjetnosti</h2>
+            <p class="section-subtitle">
+              Od srednjeg vijeka do savremenih akademskih slikara – izbor istaknutih stvaralaca.
+            </p>
+            <div class="section-body">
+              <p>
+                Analizirajući značaj ove teme, daje se osvrt na razvoj srpske umjetnosti kao jedne od
+                tri glavne teme ove edukativne brošure. Razvoj srpske umjetnosti u Crnoj Gori ima
+                duboke korijene u istoriji i tradiciji, oblikovanim političkim i kulturnim faktorima.
+              </p>
+              <p>
+                Udaljenost od velikih kulturnih centara poput Beograda nije spriječila srpski narod na
+                ovim prostorima da razvija specifične umjetničke pravce. Kroz epohe – od srednjeg vijeka
+                do savremenog doba – srpska umjetnost se razvijala pod uticajem religijskih,
+                političkih i kulturnih tokova.
+              </p>
+
+              <p><strong>U nastavku su izdvojeni neki od poznatih akademskih slikara:</strong></p>
+
+              <!-- Mihailo Mujo Jovićević -->
+              <h3 style="margin-top:0.8rem; font-size:1rem;">Mihailo Mujo Jovićević</h3>
+              <div class="image-block js-lightbox"
+                   data-full="images/mihailo-mujo-jovocevic-portret.jpg"
+                   data-caption="Mihailo Mujo Jovićević – portret">
+                <img src="mujo.jpg" alt="Mihailo Mujo Jovićević – fotografija" />
+                <div class="image-caption">
+                  Mihailo Mujo Jovićević – preuzeta fotografija.
+                </div>
+              </div>
+              <p>
+                Završio je Srednju umjetničku školu u Herceg Novom i Akademiju likovnih umjetnosti u
+                Beogradu. Studirao je slikarstvo kod Mila Milunovića, a konzervaciju kod Milorada
+                Medića. Radio je kao kustos i muzejski savjetnik, te kao profesor na više fakulteta.
+              </p>
+              <p>
+                Bio je profesor u Cetinjskoj gimnaziji, kustos i muzejski savjetnik u Ustanovi “Muzeji
+                Cetinje”, profesor na Kulturološkom fakultetu i Fakultetu likovnih umjetnosti na
+                Cetinju, kao i gostujući profesor na Akademiji likovnih umjetnosti u Trebinju.
+                Angažovan je kao profesor na Fakultetu vizuelnih umjetnosti u Podgorici (Univerzitet
+                Mediteran).
+              </p>
+              <p>
+                Učestvovao je na brojnim izložbama u zemlji i inostranstvu, dobitnik je više nagrada,
+                između ostalog i Trinaestojulske nagrade, i ima status istaknutog kulturnog stvaraoca.
+              </p>
+
+              <div class="gallery-grid">
+                <div class="gallery-item js-lightbox"
+                     data-full="images/mihailo-mujo-crtez-1.jpg"
+                     data-caption="Crtež: Mihailo Mujo Jovićević">
+                  <img src="mujocrtez.jpg"Crtež Mihaila Muja Jovićevića" />
+                  <div class="gallery-caption">Crtež: Mihailo Mujo Jovićević</div>
+                </div>
+                <div class="gallery-item js-lightbox"
+                     data-full="images/mihailo-mujo-crtez-2.jpg"
+                     data-caption="Crtež: Mihailo Mujo Jovićević">
+                  <img src="mujocrtez2.jpg" alt="Crtež Mihaila Muja Jovićevića" />
+                  <div class="gallery-caption">Crtež: Mihailo Mujo Jovićević</div>
+                </div>
+              </div>
+
+              <!-- Pero Nikčević -->
+              <h3 style="margin-top:1.1rem; font-size:1rem;">Pero Nikčević</h3>
+              <div class="image-block js-lightbox"
+                   data-full="images/pero-nikcevic-portret.jpg"
+                   data-caption="Pero Nikčević – portret">
+                <img src="pero.jpg" alt="Pero Nikčević – fotografija" />
+                <div class="image-caption">
+                  Pero Nikčević – preuzeta fotografija.
+                </div>
+              </div>
+              <p>
+                Rođen 1951. godine u Stubici kod Nikšića. Pedagošku akademiju (likovni odsjek) završio
+                je u Nikšiću 1971, a Likovnu akademiju u Beogradu 1975. godine.
+              </p>
+              <p>
+                U periodu 1976–77. živi u Parizu kao stipendista francuske vlade. Godine 1979. ponovo
+                boravi u Parizu, potom na kraćem studijskom putovanju u Americi. Od 1981. do 1984.
+                godine živi u manastiru Reževići kod Budve kao slikar–isposnik, a zatim nekoliko godina
+                u Belgiji i Francuskoj.
+              </p>
+              <p>
+                Od 1987. godine živi u Parizu, gdje i danas stvara. Bavi se crtežom, slikarstvom,
+                skulpturom u keramici i kolažom.
+              </p>
+
+              <div class="gallery-grid">
+                <div class="gallery-item js-lightbox"
+                     data-full="images/pero-nikcevic-crtez-1.jpg"
+                     data-caption="Crtež: Pero Nikčević">
+                  <img src="peroCrtez.jpg" alt="Crtež Pera Nikčevića" />
+                  <div class="gallery-caption">Crtež: Pero Nikčević</div>
+                </div>
+                <div class="gallery-item js-lightbox"
+                     data-full="images/pero-nikcevic-crtez-2.jpg"
+                     data-caption="Crtež: Pero Nikčević">
+                  <img src="prezentacija2.png" alt="Crtež Pera Nikčevića" />
+                  <div class="gallery-caption">Crtež: Pero Nikčević</div>
+                </div>
+              </div>
+
+              <!-- Vladimir Đuranović -->
+              <h3 style="margin-top:1.1rem; font-size:1rem;">Vladimir Đuranović</h3>
+              <div class="image-block js-lightbox"
+                   data-full="images/vladimir-djuranovic-portret.jpg"
+                   data-caption="Vladimir Đuranović – portret">
+                <img src="vladimir.jpg" alt="Vladimir Đuranović – fotografija" />
+                <div class="image-caption">
+                  Vladimir Đuranović – preuzeta fotografija.
+                </div>
+              </div>
+              <p>
+                Rođen 1974. u Doboju. Godine 2000. magistrirao je na FLU Cetinje (slikarstvo u klasi
+                prof. Nikole Gvozdenovića), a 1997. diplomirao na istom fakultetu. Školu primijenjenih
+                umjetnosti završio je 1992. u Sarajevu.
+              </p>
+              <p>
+                Radi kao docent na predmetu Crtanje od 1997. godine, učestvovao je u nizu izložbi i
+                likovnih programa, među kojima se izdvaja “Santa Marija” u okviru likovnog programa
+                “Grada teatra” u Budvi.
+              </p>
+
+              <!-- Željko Đurović -->
+              <h3 style="margin-top:1.1rem; font-size:1rem;">Željko Đurović</h3>
+              <div class="image-block js-lightbox"
+                   data-full="images/zeljko-djurovic-portret.jpg"
+                   data-caption="Željko Đurović – portret">
+                <img src="zeljko.jpg" alt="Željko Đurović – fotografija" />
+                <div class="image-caption">
+                  Željko Đurović – preuzeta fotografija.
+                </div>
+              </div>
+              <p>
+                Rođen 12. decembra 1956. u Danilovgradu, gdje je završio osnovno i srednje obrazovanje.
+                Studije slikarstva i postdiplomske studije završio je na Fakultetu primijenjenih
+                umjetnosti u Beogradu.
+              </p>
+              <p>
+                Član je ULUS-a, Ex-libris društva iz Beograda i internacionalne grupe umjetnika
+                „Libellule“ iz Francuske. Radi kao redovni profesor FILUM-a u Kragujevcu, na predmetima
+                crtanje i slikanje.
+              </p>
+              <p>
+                Do sada je imao 42 samostalne izložbe u zemlji i inostranstvu (Pariz, Beč, Grije itd.),
+                a djela mu se nalaze u brojnim muzejima i privatnim kolekcijama. Dobitnik je 12 nagrada,
+                među kojima je nagrada fondacije “M. C. Escher” za eks-libris i nagrada za slikarstvo
+                Zadužbine Momo Kapor.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/zeljko-djurovic-crtez.jpg"
+                   data-caption="Crtež Željka Đurovića">
+                <img src="zeljkocrtez.jpg"Crtež Željka Đurovića" />
+                <div class="image-caption">
+                  Crtež Željka Đurovića – preuzeta fotografija.
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- 6. Potreba za digitalnim medijima -->
+          <section id="section6" class="section-card">
+            <div class="section-label">6. Poglavlje</div>
+            <h2 class="section-title">Potreba za digitalnim medijima</h2>
+            <p class="section-subtitle">
+              Digitalne platforme kao ključni alat za informisanje, identitet i učešće Srba u Crnoj Gori.
+            </p>
+            <div class="section-body">
+              <p>
+                U savremenom društvu, sa ubrzanim tehnološkim razvojem i globalizacijom, potreba za
+                modernim sredstvima informisanja postaje sve izraženija. Digitalni mediji igraju
+                ključnu ulogu u oblikovanju mišljenja, donošenju odluka i građanskoj participaciji.
+              </p>
+              <p>
+                Za srpski narod u Crnoj Gori, koji se suočava sa specifičnim političkim, društvenim i
+                kulturnim izazovima, digitalni mediji postaju neophodan alat za očuvanje identiteta,
+                slobodan pristup informacijama i djelotvorno angažovanje u političkom životu.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/crkva-sv-nikole-kotor.jpg"
+                   data-caption="Crkva svetog Nikole u Kotoru">
+                <img src="svnikola.jpg" alt="Crkva svetog Nikole u Kotoru" />
+                <div class="image-caption">
+                  Crkva svetog Nikole u Kotoru. Slikao: Sarkis Mustajbašić.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. Pristup tačnim i objektivnim informacijama -->
+          <section id="section7" class="section-card">
+            <div class="section-label">7. Poglavlje</div>
+            <h2 class="section-title">Pristup tačnim i objektivnim informacijama</h2>
+            <p class="section-subtitle">
+              Borba protiv manipulacija i važnost više izvora informacija u digitalnom okruženju.
+            </p>
+            <div class="section-body">
+              <p>
+                Jedan od ključnih razloga za potrebu srpskog naroda u Crnoj Gori za modernim sredstvima
+                informisanja jeste potreba za tačnim, pravovremenim i objektivnim informacijama.
+              </p>
+              <p>
+                U prostoru složenih odnosa između različitih etničkih i političkih zajednica,
+                informacije mogu biti manipulativne, posebno u kontekstu nacionalnih i političkih
+                interesa. Digitalni mediji predstavljaju priliku za lakši pristup različitim izvorima i
+                kritičko sagledavanje događaja u zemlji i svijetu.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/stampani-mediji-cg.jpg"
+                   data-caption="Štampani mediji u Crnoj Gori – dio medijskog pejzaža">
+                <img src="stampa.jpg" alt="Štampani mediji u Crnoj Gori" />
+                <div class="image-caption">
+                  Na slici su prikazani štampani mediji u Crnoj Gori. Slikao: Marko Ćulafić.
+                </div>
+              </div>
+
+              <p>
+                Internet i društvene mreže omogućavaju srpskoj zajednici da se poveže s relevantnim
+                informacijama, ali i sa srpskom dijasporom, što olakšava međusobnu komunikaciju i
+                podršku. Na taj način moguće je pratiti zbivanja u Srbiji i regionu, ali i biti
+                informisan o lokalnim pitanjima koja se tiču života Srba u Crnoj Gori.
+              </p>
+            </div>
+          </section>
+
+          <!-- 8. Očuvanje kulturnog i nacionalnog identiteta -->
+          <section id="section8" class="section-card">
+            <div class="section-label">8. Poglavlje</div>
+            <h2 class="section-title">Očuvanje kulturnog i nacionalnog identiteta</h2>
+            <p class="section-subtitle">
+              Digitalni mediji kao produžena ruka tradicije, jezika i pravoslavnog nasljeđa.
+            </p>
+            <div class="section-body">
+              <div class="image-block js-lightbox"
+                   data-full="images/suvenirnica-bar.jpg"
+                   data-caption="Suvenirnica pored Hrama u Baru">
+                <img src="suvenir.jpg" alt="Suvenirnica pored Hrama u Baru" />
+                <div class="image-caption">
+                  Suvenirnica pored Hrama u Baru. Slikao: Sarkis Mustajbašić.
+                </div>
+              </div>
+
+              <p>
+                Za srpski narod u Crnoj Gori, digitalni mediji predstavljaju važan kanal za očuvanje
+                kulturnog i nacionalnog identiteta. U kontekstu relativno male i povremeno
+                marginalizovane zajednice, pristup informacijama o istoriji, tradiciji, kulturi i
+                religiji od ključne je važnosti.
+              </p>
+              <p>
+                Kroz digitalne platforme – portale, blogove, YouTube kanale i društvene mreže – srpska
+                zajednica može širiti i čuvati svoj kulturni identitet, istovremeno se povezujući sa
+                širim srpskim kulturnim prostorom.
+              </p>
+              <p>
+                Digitalni mediji pružaju priliku da se očuvaju veze sa matičnom Srbijom, kao i da se
+                doprinese očuvanju srpske kulturne baštine u Crnoj Gori, sa posebnim naglaskom na
+                istoriju, umjetnost, književnost i tradiciju.
+              </p>
+            </div>
+          </section>
+
+          <!-- 9. Politička angažovanost i građanska participacija -->
+          <section id="section9" class="section-card">
+            <div class="section-label">9. Poglavlje</div>
+            <h2 class="section-title">Politička angažovanost i građanska participacija Srba u Crnoj Gori</h2>
+            <p class="section-subtitle">
+              Digitalni prostori kao sredstva organizovanja, debate i učešća u javnom životu.
+            </p>
+            <div class="section-body">
+              <div class="image-block js-lightbox"
+                   data-full="images/zvono-sv-djordje.jpg"
+                   data-caption="Zvono na crkvi Svetog Đorđa – simbol zajednice i okupljanja">
+                <img src="zvono.jpg" alt="Zvono na crkvi Svetog Đorđa" />
+                <div class="image-caption">
+                  Zvono na crkvi Svetog Đorđa. Slikao: Marko Ćulafić.
+                </div>
+              </div>
+
+              <p>
+                Digitalni mediji omogućavaju srpskom narodu u Crnoj Gori da bude politički angažovaniji
+                i da se efikasnije uključi u društvene i političke procese. Kroz internet građani mogu
+                pratiti politička dešavanja, analizirati programe, učestvovati u debatama i organizovati
+                inicijative i kampanje.
+              </p>
+              <p>
+                Za srpske političke i društvene aktere, koji se često suočavaju s političkom
+                marginalizacijom, digitalne platforme su ključne za širenje stavova i mobilizaciju
+                podrške. Glas srpske zajednice na taj način snažnije ulazi u javni prostor.
+              </p>
+            </div>
+          </section>
+
+          <!-- 10. Izazovi i opasnosti digitalnih medija -->
+          <section id="section10" class="section-card">
+            <div class="section-label">10. Poglavlje</div>
+            <h2 class="section-title">Izazovi i opasnosti koje kriju digitalni mediji</h2>
+            <p class="section-subtitle">
+              Dezinformacije, manipulacije, polarizacija i ugrožavanje međuljudskih odnosa.
+            </p>
+            <div class="section-body">
+              <div class="image-block js-lightbox"
+                   data-full="images/bista-nikola-tesla.jpg"
+                   data-caption="Bista Nikole Tesle u dvorištu Hrama u Podgorici">
+                <img src="NK.jpg" alt="Bista Nikole Tesle u dvorištu Hrama u Podgorici" />
+                <div class="image-caption">
+                  Bista Nikole Tesle u dvorištu Hrama, Podgorica. Slikao: Sarkis Mustajbašić.
+                </div>
+              </div>
+
+              <p>
+                Iako digitalni mediji nude brojne prednosti, postoje i izazovi i opasnosti: širenje
+                dezinformacija, političkih manipulacija i polarizacije društva. U Crnoj Gori, gdje su
+                političke strasti često visoke, internet i društvene mreže mogu postati prostor za
+                širenje lažnih vijesti i propagande.
+              </p>
+              <p>
+                Jedan od najvećih izazova jeste brzina širenja neprovjerenih informacija. Lažne vijesti
+                i manipulacije mogu imati ozbiljne posljedice na političko odlučivanje, zdravlje,
+                bezbjednost i međuljudske odnose. Specijalna važnost se daje razvoju medijske pismenosti
+                – sposobnosti građana da razlikuju pouzdane od nepouzdanih izvora.
+              </p>
+              <p>
+                Iako digitalni mediji olakšavaju komunikaciju, mogu uticati i na kvalitet stvarnih,
+                ličnih odnosa. Ljudi sve više komuniciraju putem interneta nego uživo, što može dovesti
+                do smanjenja dubine odnosa, emocionalne povezanosti i iskrene komunikacije.
+              </p>
+            </div>
+          </section>
+
+          <!-- 11. Crkva Svetog Đorđa -->
+          <section id="section11" class="section-card">
+            <div class="section-label">11. Poglavlje</div>
+            <h2 class="section-title">Crkva Svetog Đorđa – simbol tradicije Srba i vjernika</h2>
+            <p class="section-subtitle">
+              Jedna od najstarijih aktivnih hrišćanskih bogomolja u Crnoj Gori – istorija, arhitektura, živopis.
+            </p>
+            <div class="section-body">
+              <p>
+                Crkva Svetog Đorđa nalazi se u podnožju brda Gorice, sa južne strane. Arheološka
+                istraživanja ukazuju da je crkva stara gotovo čitav milenijum, što je čini jednom od
+                najstarijih aktivnih hrišćanskih bogomolja u Crnoj Gori.
+              </p>
+              <p>
+                Građena je u preromaničkom stilu kao jednobrodna zasvedena građevina, sa polukružnom
+                apsidom, niskom kupolom i zvonikom na preslicu sa tri zvona. Tokom vremena crkva je
+                doživljavala oštećenja, izmjene i dogradnje; za vrijeme Turaka, 1855. godine, bila je
+                gotovo potpuno razrušena i korišćena kao magacin.
+              </p>
+              <p>
+                Obnovljena je 1880. godine, kada se sa zapadne strane dograđuje priprata sa zvonikom.
+                Na crkvi su 1966. godine izvršeni detaljni istraživački i konzervatorsko–restauratorski
+                radovi i vraćen je prvobitni oblik kubeta i krov od kamenih ploča. U crkvi je sačuvan
+                živopis iz XVI–XVII vijeka, rad majstora popa Strahinje iz Budimlja.
+              </p>
+
+              <div class="image-block js-lightbox"
+                   data-full="images/ulaz-crkva-sv-djordje.jpg"
+                   data-caption="Ulaz u crkvu Svetog Đorđa u Podgorici">
+                <img src="djordje.jpg" alt="Ulaz u crkvu Svetog Đorđa u Podgorici" />
+                <div class="image-caption">
+                  Ulaz u crkvu Svetog Đorđa, Podgorica. Slikao: Sarkis Mustajbašić.
+                </div>
+              </div>
+
+              <p>
+                Crkva Svetog Đorđa je kulturno dobro pod zaštitom države: upisana je u Registar
+                kulturnih dobara, kao i u Centralni registar zaštićenih spomenika kulture Crne Gore.
+              </p>
+              <p>
+                Srbi u Crnoj Gori većinom pripadaju Srpskoj pravoslavnoj crkvi (SPC). Manastiri i crkve
+                imaju centralno mjesto u svakodnevnom, ali i kulturnom životu. Pravoslavlje igra ključnu
+                ulogu u očuvanju identiteta, dok su crkveni praznici i vjerski obredi duboko ukorijenjeni
+                u zajednici.
+              </p>
+            </div>
+          </section>
+
+          <!-- 12. Istorija srpskog u sažetim analizama -->
+          <section id="section12" class="section-card">
+            <div class="section-label">12. Poglavlje</div>
+            <h2 class="section-title">Istorija srpskog jezika u sažetim analizama</h2>
+            <p class="section-subtitle">
+              Od Miroslavljevog jevanđelja do savremenog standardnog jezika i dvaju pisama.
+            </p>
+            <div class="section-body">
+              <div class="image-block js-lightbox"
+                   data-full="images/shutterstock-istorija-jezika.jpg"
+                   data-caption="Ilustracija – istorija srpskog jezika">
+                <img src="globus.png" alt="Ilustracija istorije jezika" />
+                <div class="image-caption">
+                  Foto: Shutterstock – ilustracija istorije srpskog jezika.
+                </div>
+              </div>
+
+              <p>
+                Istorija srpskog jezika je bogata i kompleksna, sa korijenima koji sežu unazad
+                vijekovima. Srpski jezik pripada grupi južnoslovenskih jezika i razvijao se kroz različite
+                istorijske periode, kulturne uticaje i jezičke reforme.
+              </p>
+              <p>
+                Prvi pisani tragovi srpskog jezika datiraju iz XII i XIII vijeka. Među najvažnijim
+                dokumentima ističe se Miroslavljevo jevanđelje, zajedno sa drugim crkvenim spisima
+                pisanim crkvenoslovenskim jezikom, koji je bio liturgijski jezik Srpske pravoslavne
+                crkve i ostavio snažan trag na pravopis i leksiku.
+              </p>
+              <p>
+                Vuk Stefanović Karadžić u XIX vijeku sprovodi ključnu reformu jezika – standardizuje
+                pravopis i uvodi načelo „piši kao što govoriš“, zasnovano na narodnom govoru.
+              </p>
+              <p>
+                Danas srpski jezik ima dvije standardne izgovorne varijante – ekavsku i ijekavsku –
+                koje se koriste u različitim dijelovima Srbije, Crne Gore, Bosne i Hercegovine i
+                Hrvatske, i koristi oba pisma: ćirilicu i latinicu (ćirilica je službeno pismo u
+                Srbiji).
+              </p>
+            </div>
+          </section>
+
+          <!-- 13. Piše: Nenad Mitrović o istoriji srpskog naroda -->
+          <section id="section13" class="section-card">
+            <div class="section-label">13. Poglavlje</div>
+            <h2 class="section-title">Piše: Nenad Mitrović – o istoriji srpskog jezika i naroda</h2>
+            <p class="section-subtitle">
+              Savremene jezičke promjene, stari srpski jezik i istorijske seobe – popularno–naučni osvrt.
+            </p>
+            <div class="section-body">
+              <p>
+                Svake godine se u srpskom jeziku pojavi na desetine i desetine novih reči i izraza. To čak i u današnje doba jasno definisanih filoloških, lingvističkih, leksičkih nauka i njihovih pravila, kao i u doba savremenih medija i tehnologija kojima se razvoj jednog jezika mnogo lakše i efikasnije prati, dovodi do ogromnih problema i poteškoća. Glavno pitanje koje se postavlja glasi: Da li mi govorimo i pišemo na istom jeziku, mi iz Bora, Subotice, Vranja i Priboja? A šta sa onima u rasejanju, na primer u Čikagu?
+              </p>
+              <p>
+                Da li govorimo i pišemo na istom jeziku danas kao što smo i juče, kao što ćemo sutra? Da li istim jezikom komuniciraju unuk i deda, generacije koje su živele pod različitim okolnostima, u drugim socio-ekonomskim strukturama, pa čak i u drugim državama (setimo se samo koliko je bilo različitih Jugoslavija i Srbija, šta su sve one vremenom obuhvatale, odnosno to nisu, od početka svog vremena)? Koji je to zapravo “srpski jezik” koji danas upotrebljavamo i kako ga definisati?
+              </p>
+              <p>
+                Nove reči se u jednom jeziku, pa tako i srpske reči u današnjem književnom srpskom jeziku, stalno pojavljuju kao posledica nastanka odnosno evolucije iz već postojećih reči i izraza, usvajanjem iz drugih jezika i kultura, prihvatanjem izraza i značenja brojnih podkultura, novih reči “sa ulice”, iz rečnika mladih, internetskih skraćenica i popularnih “mimova” itd. I kao da to već samo po sebi nije dovoljno, već postojeće reči, one za koje po nekom nesvesnom ali vrlo pogrešnom automatizmu smatramo da stoje kao granitni neizmenjeni spomenici određenog značenja i smisla, vremenom poprimaju nova značenja, gde je ta promena ponekad dramatična i značajna.
+              </p>
+              <p>
+                Zamslite onda samo u kojem je haosu i neredu bio jezik srpski, serbski, jezik Soraba, to govorno i pisano pomagalo i narodno vlasništvo Srbalja koje se kao živo testo razvlačilo od usta do usta ljudi serbskih i vlaških sve od Triglava do Vidina, i od Budima do Soluna, od vremena doseljavanja Južnih Slovena na Balkan pa sve do 18. veka, slobodarski ali i većim delom ovog trajanja pod vlašću Turaka i Austrougara!
+Objasnimo onda u kojem se to stanju nalazio jezik srpski s početka 19. veka, ko su bili i kakve su napore ulagali oni samosvesni stvaraoci i reformatori kojima danas dugujemo konstrukciju jezika maternjeg kakav on jeste sada (sa svim svojim lošim i dobrim osobinama i aspektima).
+
+              </p>
+              <p>Kao prvo moramo shvatiti da je od najranije istorije srpskog jezika (paralelno sa razvojem srpskog naroda i države) postojao dualitet između nemetnutog pisanog književnog i slobodnog govorućeg narodnog jezika a da je borba između ova dva jezika, u nekim pogledima i znatno različitih i dalekih jezičkih konstrukcija, istorijski zavisio od, ali i uticao na, politiku između naroda srbskog i njegovih suseda, kao i na geopolitički položaj koji je narod naš vremenom zauzimao, gubio i ponovo naseljavao na Balkanu. Još u 12. veku došlo je do razvoja srpskog jezika koji je postepeno i uz mnogo lokalnih varijacija u brzini i stepenu promena, istiskivao iz upotrebe stariji staroslovenski jezik od kojeg je poticao. Te promene su se najbolje očitavale u delima svetovnog karaktera (dakle tamo gde se crkva što manje mešala), kao što su bila lična ali i službena vladarska pisma, povelje, gospodarski zakonici i drugi pravni, ekonomski i privredni akti. Takvim jednim novim srpskoslovenskim jezikom, drugačijim od staroslovenskog, napisano je i Miroslavljevo jevanđelje. Kao prostor nastanka srpskoslovenskog jezika uzima se predeo oko današnje granice Srbije i Makedonije, najjužnije do Skoplja. On je imao tri istorijski zabeležena pravopisa, zetsko-humski, raški i resavski, ali je to i dalje bio književni jezik kojima je pisao tek ograničeni elitni broj pismenih ljudi (uglavnom po manastirima pravoslavnim), i on se i dalje u velikoj meri razlikovao od jezika govornog i narodnog, koji ćemo u ovo doba istorije zvati starosrpskim. Dešavalo se međutim da se i tim jezikom narodnim (koji je, pogađate, od najvećeg interesovanja za nas, pisce i čitaoce koji žele da sebi dočaraju neko istorijski udaljeno srpsko mesto i priliku iz pravoga života) napiše delo koje će biti sačuvano od zaborava čak do našeg doba i time nam dati neprocenjiv uvid u reč i govor narodni iz istorije davnašnje. Upravo takvo jedno delo jeste povelja Kulina-bana iz 1189. godine upućeno Dubrovčanima.</p>
+              <p>Dajmo samo jedan kratak izvod iz ove povelje, prvo u izgovoru a zatim i u “prevodu” na savremeni srpski jezik kako bismo videli zapravo u kojoj su i kolikoj oni korelaciji:
+                Izgovor:
+                U ime Oca i Sina i Svetoga duha, ja ban bosanski Kulin prisezaju tebje kneže Krvašu; i vsjem građam dubrovčam pravi prijatelj biti vama od selje i dovjeka i prav goi držati s vami; i pravu vjeru dokole sam živ; vsi dubrovčane kire hode po mojemu vladaniju trgujuće godje si kto hoke…
+                </p>
+                <p><b>"Prevod:"</b>U ime Oca i Sina i Svetoga duha, ja bosanski ban Kulin, obećavam tebi kneže Krvoše i svim građanima Dubrovčanima da ću vam biti pravi prijatelj od sada pa do veka. Držaću sa vama pravdu i pravo poverenje dokle god budem živ. Svi Dubrovčani koji prolaze kroz zemlje kojima ja vladam mogu trgovati gde god hoće… Samo iz ovog malog broja reči vidimo da se jezik serbski iz 12. veka naše istorije umnogome razlikuje od jezika današnjeg, u toj meri praktično da je gotovo nerazumljiv ili razumljiv tek delimično, a nikako u punom smislu i značenju. Da li bi ovo trebalo biti iznenađenje? Naravno da ne. Uostalom, to su bili ljudi i to beše jezik njihov pre 800, 900 godina! Pa šta drugo i da očekujemo? Neće li valjda oni koristiti reči kao što su sladoled, žurka ili smaranje? O kojim će temama i pojmovima, dešavanjima i pojavama govoriti i razmišljati ako ne o onima koje su bile njima bitne i svakodnevne? A sve te pojave i dešavanja vremenom izgubiše svoj značaj i mesto u svetu, pa mnogi od njih više i ne postoje, a ako i postoje koliko li su samo drugačije, zamislite! I kako onda jedan jezik mora drugačiji postati?!</p>
+                <p>A ako baš moramo dati i naš sud oko toga kojim bi se jezikom govorilo, i kakvim bi se rečima takav jezik izražavao u vremenu kada su Nemanjići vladali, onda bi to upravo bio jezik starosrpski izražen u povelji Kulina-bana i još ponekim šturim dokumentima. Nikako jezikom savremenim kako nas to na televiziji ubeđuju i varaju. A ako pomislimo da je takvo nešto i namerno rađeno jer bi jezik starosrpski nerazumljiv bio gledaocima današnjice, setimo se proste činjenice da se jezik ne može i ne sme odvojiti od svoje suštine odnosno od onoga o čemu pripoveda i zbori, pa bi barem reči i i izrazi morali ostati autentični i stari, a ne novoskovani i novokomponovani, kakve nam u ovoj nesrećnoj seriji prikazivaše. Međutim, i dalje smo daleko od 18. veka koji je naš najpreči interes ovde, pa da vidimo kako se jezik srpski dalje razvijao. U 14. veku napisan je monumentalni pravni dokument srpske istorije – Zakonik cara Dušana, koji je zapravo napisan srpskoslovenskim jezikom ali uz veliki udeo i brojne elemente srpskog narodnog jezika. Dajemo kratak izvod iz ovog pisanog dela kako bismo konkretnije uvideli kako se srpski jezik razvijao.</p>
+                <p><b>Izvod iz Dušanovog zakonika:</b>
+                  “Meropsima u zemlji carstva mi, da nije vlastan nijedan gospodar išta protiv zakona, osim što je carstvo mi zapisalo u zakoniku, to da mu rabota i daje. Akoli mu učini što nezakonito, zapoveda carstvo mi, da je vlastan svaki meropah parničiti se sa svojim gospodarem, ili s carstvom mi, ili s gospođom caricom, ili s crkvom, ili s vlastelom carstva mi, ili s kim bilo, da ga nije vlastan ko zadržati od suda carstva mi, osim da mu sudije sude po pravdi, i ako meropah dobije parnicu protiv gospodara, da mu zajemči rok, i potom da nije vlastan onaj gospodar učiniti zlo merophu.”
+                  </p>
+                <p>Vidimo da je jezik i stil izražavanja već sasvim čitljiv i razumljiv, možda ne stoprocentno ali sasvim dovoljno da se shvati osnovni smisao napisanog.
+                  Car Stefan Dušan, ne bez razloga nazvan Silni, bio je nažalost jedan od poslednjih jakih vladara u srpskoj srednjevekovnoj istoriji koji je tradiciju i jezik srpstva širio i razvijao, paralelno šireći teritorije, uticaj i blagostanje Srba i susednih naroda. Nakon njegove smrti dolazi do rapidne dezintegracije Srpske države i naroda, a nad Balkanom se nadvijaju crne senke velikih evropskih sila koje će se za bogatstvo naše zemlje i naroda otimati nekoliko narednih vekova. Period od 16. Do 18. veka upisan je crnim slovima u istoriju Srbalja, i on je ostavio gadan i neprijatan ožiljak na tkivu našeg serbskog bića, pa tako i naše tradicije a zajedno sa njom i na osetljivom tkivu jezika. Nakon pada Srbije u ropstvo pod Osmanlijskim carstvom 1690. godine, dešava se Velika seoba Srba u kojoj je jedan deo srpskog naroda i sveštenstva zbog ratovanja na strani Austrije, a protiv Osmanlija, izbegao na sever, preko Save i Dunava, u tadašnju Južnu Ugarsku, odnosno u veliku ravnicu, kako je nazivana Panonska nizija a koja je zapravo već vekovima bila većinski naseljena slovenskim (srpskim i drugim) stanovništvom. Ovo tumbanje stanovništva i masovne migracije naroda imalo je veliki uticaj na jezik jer je jezički izraz, kao što smo već rekli, proizvod ljudi određenog prostora i kulture. Ovo dodatno dobija na težini u slučaju seobe Srba jer su upravo pravoslavni sveštenici bili onaj pismen i jeziki osvešćen elitni sloj naroda koji je imao uticaja na njegovu evoluciju. Šta se međutim dešava sa narodom i jezikom njegovim u podjarmljenim turskim krajevima? On se zatvara u sebe, konzervira i degradira, trudeći se da zadrži svoje, ali neminovno primajući strane uticaje. Koliko god da je srblje gajilo prezir, mržnju i otpor prema turskoj vlasti, njegovim predstavnicima i širim slojevima muslimanskog sveta koji se naseljavao među Srbima, više u gradovima a manje u selima (to uglavnom behu turski, arapski i jermenski trgovci i zanatlije), turski jezik, sa veoma značajnom arapskom literarnom podlogom, brzo je i lako prodro u jezik naroda serbskog, gotovo kao zarđalo šilo u trulo meso. Procena je da danas postoji silesija turcizama u srpskom rečniku od gotovo 8.000 pozajmljenica turskih (i arapskih) reči! Upravo u ovom periodu u srpski jezik ulaze reči kao što su dućan, hajduk, kesa, džep, šećer, duvan, boja, bubreg, limun, badem, majmun, šal, pamuk, sapun, itd itd, koje danas praktično nemaju zamenu a k0je intuituvno (a sasvim pogrešno) smatramo autentično srpskim.
+                  Srbi pak, želeći da se zaštite od uticaja islama i tuđe tradicije, otvaraju se tada na drugu stranu, uticaju Rusije i jezika ruskog, koji je već u to vreme bio korenito drugačiji od neke umišljenje staroslovenske zajedničke matrice kojoj su se tadašnji Srbi nadali. Srpsko sveštenstvo, preostala vlastela i svi školovani učenjaci okreću se savladavanju ruskog jezika i njegovom unošenju u udžbenike i knjige za srpske đake.
+                  Zastanimo ovde za trenutak i rezimirajmo dakle u kakvom je stanju srpski jezik 16. do 18. veka. Pored neizbežnog mešanja i dvosmernog preplitanja sa kulturom i jezicima susednih naroda, Vlaha, Bugara, Arbanasa, jezik Srba prima odlučujući i presudan uticaj jezika turskog. Ponovo spominjemo da je tom prilikom preko turskog u srpski govorni jezik ušla i dobra doza arapskih reči kao i ideje i misli arapskog i iranskog porekla. Na sve to se sasvim veštački, a iz današnje perspektive i sasvim nepotrebno pa čak i štetno, kalemi nesrodna mladica ruskog jezika čija je jedina sudbina bila da vremenom uvene i umre, noseći sa sobom i jedan mali ali značajan hranljivi i kreativni deo književnosti i literacije srpske sa sobom u propadanje.
+                  Dakle, pokušaj da se srpski jezik sačuva od orijentalnih uticaja hibridizacijom sa ruskim jezikom vremenom je propao. Rusija i narod ruski uvek su bili i ostali dovoljno daleko kako geografski tako i kulturno, da zanavek ostanu Srbima strani i nerazumljivi, kao daleki rođak sa majčine strane koji se još u mladosti odselio iz domovine i sad je, gle čuda, maternji jezik zaboravio i više ga ne ume sricati. (Samo što je u slučaju Slovena, upravo južna grana tog naroda, sa glavnim predstavnicima Srbima bio taj “rođak” koji se odselio iz pradomovine).
+                  Zato i ne čudi što je, ostavljen na milost i nemilost kulturi kaurinskoj, jezik serbski postao neobična i egzotična mešavina autentičnih slovenskih i pripojenih turskih reči i izraza. Jorgan, kafa, kafana, kašika, rakija, čarapa, para, pekmez, kajmak, sarma, čardak, kapija, baksuz, komšija, reči su za koje u srpskom nema ekvivalenta – osećamo ih i kao svoje. Ali mnoge reči pored toga poprimile su vremenom drugačija značenja od izvornog, pa „sijaset“, koji izvorno znači „politika“, u srpskom jeziku označava „mnogo“, „veliki broj“. Malo nas zna da jatak (onaj koji skriva hajduke) u izvornom značenju zapravo je „krevet“, „postelja“.
+                  Sve ovo u najvećoj mogućoj meri važi za zemlje srpske južno od Save i Dunava. U Bosni i županijama hrvatskim srpski jezik pored turskog trpi uticaje talijanskog ili mletačkog kako su ga poznavali Srbi 18. veka, a što se tiče velike ravnice Panonske situacija u jeziku i narodu srpskom je još složenija jer se jezik narodni, već dovoljno uprljan ili obogaćen turskim, meša i prepliće sa mađarskim i nemeckim,a sve preko agresivne ugarske vlasti! A sve to u uslovima kada ne postoji jedna jedinstvena i snažna srpska država koja bi jezik narodni (kao ni sam narod, jelte) zaštitla i očuvala i koja bi se sistematski i organizovano pozabavila njegovim ozdravljenjem i reformacijom!
+                  </p>
+                <div class="meta-note">
+                Ovaj tekst je u cjelosti preuzet sa web sajta autora: 
+                <a href="knjige.jpg" target="_blank" rel="noreferrer">
+                  nenadmitrovic.rs/kratka-istorija-srpskog-jezika
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- 14. Galerija fotografija -->
+          <section id="section14" class="section-card">
+            <div class="section-label">14. Poglavlje</div>
+            <h2 class="section-title">Galerija fotografija – „Kulturna antropologija Srba“</h2>
+            <p class="section-subtitle">
+              Fotografije nastale za potrebe realizacije projekta – crkve, spomenici, hramovi i mjesta okupljanja.
+            </p>
+            <div class="section-body">
+              <div class="gallery-grid">
+                <div class="gallery-item js-lightbox"
+                     data-full="images/groblje-sv-djordje.jpg"
+                     data-caption="Dvorišna strana – groblje ispred crkve Svetog Đorđa, Podgorica">
+                  <img src="sl1.jpg" alt="Groblje ispred crkve Svetog Đorđa" />
+                  <div class="gallery-caption">
+                    Dvorišna strana – groblje ispred crkve Svetog Đorđa, Podgorica. Slikao: Marko Ćulafić.
+                  </div>
+                </div>
+
+                <div class="gallery-item js-lightbox"
+                     data-full="images/dvoriste-hram-bar.jpg"
+                     data-caption="Dvorišna strana Hrama u Baru">
+                  <img src="sl2.jpg" alt="Dvorište Hrama u Baru" />
+                  <div class="gallery-caption">
+                    Dvorišna strana Hrama u Baru (Marko Ćulafić).
+                  </div>
+                </div>
+
+                <div class="gallery-item js-lightbox"
+                     data-full="images/spomenik-sv-petar-cetinjski-1.jpg"
+                     data-caption="Spomenik Svetog Petra Cetinjskog, Podgorica">
+                  <img src="sl3.jpg" alt="Spomenik Svetog Petra Cetinjskog u Podgorici" />
+                  <div class="gallery-caption">
+                    Spomenik Svetog Petra Cetinjskog, Podgorica. Slikao: Marko Ćulafić.
+                  </div>
+                </div>
+
+                <div class="gallery-item js-lightbox"
+                     data-full="images/crkva-grizica-rozaje-2.jpg"
+                     data-caption="Crkva u Rožajama, selo Grižica">
+                  <img src="sl4.jpg" alt="Crkva u Rožajama, selo Grižica" />
+                  <div class="gallery-caption">
+                    Crkva u Rožajama, selo Grižica (Marko Ćulafić).
+                  </div>
+                </div>
+
+                <div class="gallery-item js-lightbox"
+                     data-full="images/manastir-ostrog.jpg"
+                     data-caption="Manastir Ostrog">
+                  <img src="sl5.jpg" alt="Manastir Ostrog" />
+                  <div class="gallery-caption">
+                    Manastir Ostrog (Marko Ćulafić).
+                  </div>
+                </div>
+
+                <div class="gallery-item js-lightbox"
+                     data-full="images/spomenik-sv-petar-cetinjski-2.jpg"
+                     data-caption="Spomenik Svetog Petra Cetinjskog, drugi kadar">
+                  <img src="sl6.jpg" alt="Spomenik Svetog Petra Cetinjskog, drugi kadar" />
+                  <div class="gallery-caption">
+                    Spomenik Svetog Petra Cetinjskog, Podgorica – drugi kadar. Slikao: Marko Ćulafić.
+                  </div>
+                </div>
+
+                <div class="gallery-item js-lightbox"
+                     data-full="images/spomen-ploca-oslobodioci-bara.jpg"
+                     data-caption="Spomen ploča oslobodiocima Bara">
+                  <img src="sl7.jpg" alt="Spomen ploča oslobodiocima Bara" />
+                  <div class="gallery-caption">
+                    Spomen ploča oslobodiocima Bara. Slikao: Sarkis Mustajbašić.
+                  </div>
+                </div>
+
+                <div class="gallery-item js-lightbox"
+                     data-full="images/ispred-hrama-bar.jpg"
+                     data-caption="Ispred Hrama u Baru">
+                  <img src="sl8.jpg" alt="Ispred Hrama u Baru" />
+                  <div class="gallery-caption">
+                    Ispred Hrama u Baru. Slikao: Sarkis Mustajbašić.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- SIDE PANEL -->
+        <aside class="sections-side">
+          <div class="side-card">
+            <h3>Sadržaj stranice</h3>
+            <p>
+              Brzi pregled svih tema u okviru projekta „Kulturna antropologija Srba“.
+            </p>
+            <div class="side-nav-list">
+              <a href="#section1">1. Kulturna antropologija Srba</a>
+              <a href="#section2">2. Struktura stanovništva</a>
+              <a href="#section3">3. Političko prije nego statističko pitanje</a>
+              <a href="#section4">4. Migracija Srba u Crnoj Gori</a>
+              <a href="#section5">5. Afirmacija stvaralaštva srpske umjetnosti</a>
+              <a href="#section6">6. Potreba za digitalnim medijima</a>
+              <a href="#section7">7. Pristup tačnim i objektivnim informacijama</a>
+              <a href="#section8">8. Očuvanje kulturnog i nacionalnog identiteta</a>
+              <a href="#section9">9. Politička angažovanost i građanska participacija</a>
+              <a href="#section10">10. Izazovi digitalnih medija</a>
+              <a href="#section11">11. Crkva Svetog Đorđa</a>
+              <a href="#section12">12. Istorija srpskog jezika</a>
+              <a href="#section13">13. Piše: Nenad Mitrović</a>
+              <a href="#section14">14. Galerija fotografija</a>
+            </div>
+
+            <div class="side-pill">
+              <span class="icon">⛪</span>
+              <span>Crkve • Jezik • Umjetnost</span>
+            </div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-title">Popis – ključni podaci</div>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">Crnogorci (2023)</span>
+                <span class="stat-value">41,1%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Srbi (2023)</span>
+                <span class="stat-value">32,9%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Srpski maternji</span>
+                <span class="stat-value">43,18%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Crnogorski maternji</span>
+                <span class="stat-value">34,52%</span>
+              </div>
+            </div>
+            <div class="stat-chip">
+              📊 Izvor: Monstat – popis 2011/2023
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="glavni-footer">
+    <div class="footer-sadrzaj">
+      
+  
+      <div class="footer-info">
+        <p>Sajt izradio: <b>Savo Stijepović</b> </p>
+<p>Lice za prikupljanje materijala na određenim temama: <b>Sarkis Mustajbašić</b> </p>
+<p>Lice za prikupljanje materijala na određenim temama: <b>Marko Ćulafić</b></p>
+<p>Asistent: <b>Miloš Đurović</b> </p>
+        <h4><b>Napomena:</b>  Stavovi koji su iznijeti na ovom sajtu su isključivo odgovornost autora i nikako ne znače stavove Fonda za zaštutu i ostvarivanje manjinskih prava Crne Gore koji je i omogućio realizaciju ovog projekta.</h4>
+      </div>
+  
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Doprinos žena u očuvanju tradicije | Autorka projekta: Tima Agović</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Mobile nav
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
+
+    if (navToggle && nav) {
+      navToggle.addEventListener("click", function () {
+        nav.classList.toggle("open");
+      });
+    }
+
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").substring(1);
+        if (!targetId) return;
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (nav) nav.classList.remove("open");
+        }
+      });
+    });
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("modalCaption");
+    const closeBtn = document.querySelector(".modal-close");
+
+    function openModal(imgEl) {
+      if (!modal || !modalImg || !modalCaption) return;
+      const fullSrc = imgEl.dataset.full || imgEl.src;
+      const caption = imgEl.dataset.caption || imgEl.alt || "";
+      modalImg.src = fullSrc;
+      modalImg.alt = imgEl.alt || "";
+      modalCaption.textContent = caption;
+      modal.classList.add("open");
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove("open");
+    }
+
+    document.querySelectorAll(".js-lightbox").forEach(function (el) {
+      el.addEventListener("click", function () {
+        openModal(el);
+      });
+    });
+
+    if (closeBtn && modal) {
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    // ESC to close modal
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    // Footer year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  });
+</script>
+
+<!-- Modal / lightbox element -->
+<div class="modal" id="imageModal" aria-hidden="true">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <span>Galerija – kliknuta fotografija</span>
+      <button class="modal-close" type="button">Zatvori ✕</button>
+    </div>
+    <div class="modal-image-wrap">
+      <img id="modalImage" src="" alt="" />
+    </div>
+    <div class="modal-caption" id="modalCaption"></div>
+  </div>
+</div>
+
+</body>
+</html>
